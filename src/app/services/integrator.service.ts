@@ -33,6 +33,7 @@ export class IntegratorService {
 
     let steps = 50;
     for (let r = 0; r < 100; r += (100 / steps)) {
+      // let dv = r * r * 4 * Math.PI * (1 / ((Math.PI / steps) * (2 * Math.PI / steps))) * (100 / steps)
       for (let theta = 0; theta < Math.PI; theta += (Math.PI / steps)) {
         for (let phi = 0; phi < 2 * Math.PI; phi += (2 * Math.PI / steps)) {
           let rRand = math.random(0, (100 / steps))
@@ -40,7 +41,9 @@ export class IntegratorService {
           let pRand = math.random(0, (2 * Math.PI / steps))
 
           let p = integrandC.evaluate({ r: r + rRand, theta: theta + tRand, phi: phi + pRand, a: 1 })
+
           out.push(new IntegrationResult(r + rRand, theta + tRand, phi + pRand, p))
+
         }
       }
     }
