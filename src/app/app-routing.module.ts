@@ -6,7 +6,7 @@ import { WavefunctionComponent } from './pages/wavefunction.component';
 
 const routes: Routes = [
   { path: 'formulas', component: FormulasComponent },
-  { path: 'wave', component: WavefunctionComponent }
+  { path: '', component: WavefunctionComponent }
 ];
 
 @NgModule({
