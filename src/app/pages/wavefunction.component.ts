@@ -39,7 +39,7 @@ export class WavefunctionComponent implements OnInit {
     points: 10000,
     n: 4,
     l: 2,
-    m: 1,
+    m: 0,
   }
 
   gui = new dat.GUI();
