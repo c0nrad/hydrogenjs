@@ -37,9 +37,9 @@ export class WavefunctionComponent implements OnInit {
   state = {
     minProb: .00000001,
     points: 10000,
-    n: 3,
-    l: 0,
-    m: 0,
+    n: 4,
+    l: 2,
+    m: 1,
   }
 
   gui = new dat.GUI();
