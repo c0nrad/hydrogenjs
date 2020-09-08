@@ -43,7 +43,6 @@ export class IntegratorService {
           let p = integrandC.evaluate({ r: r + rRand, theta: theta + tRand, phi: phi + pRand, a: 1 })
 
           out.push(new IntegrationResult(r + rRand, theta + tRand, phi + pRand, p))
-
         }
       }
     }

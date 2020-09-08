@@ -15,6 +15,8 @@ import { Scene } from 'three';
   selector: 'app-wavefunction',
   template: `
 
+    <div id="statsDiv"></div>
+    <div id="canvasDiv"></div>
     <!-- <table class="table">
       <tr><th>r</th><th>theta</th><th>phi</th><th>p</th></tr>
 
@@ -35,14 +37,13 @@ export class WavefunctionComponent implements OnInit {
   state = {
     minProb: .00000001,
     points: 10000,
-    n: 4,
-    l: 1,
+    n: 3,
+    l: 0,
     m: 0,
   }
 
   gui = new dat.GUI();
   stats = new Stats();
-
 
   container: any
   camera: THREE.Camera
@@ -61,15 +62,18 @@ export class WavefunctionComponent implements OnInit {
   ngOnInit(): void {
 
     this.stats.showPanel(1); // 0: fps, 1: ms, 2: mb, 3+: custom
-    document.body.appendChild(this.stats.dom);
 
     this.init();
     this.animate();
   }
 
+  ngOnDestroy() {
+    this.gui.hide()
+  }
+
   init() {
-    this.container = document.createElement('div');
-    document.body.appendChild(this.container);
+    this.container = document.getElementById("canvasDiv")
+    document.getElementById("statsDiv")?.appendChild(this.stats.dom);
 
     this.camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1, 10000);
     this.camera.position.z = 100;
@@ -209,7 +213,7 @@ export class WavefunctionComponent implements OnInit {
       }
 
       let v = new THREE.Vector3(0, 0, 0);
-      v.setFromSphericalCoords(this.integrationResults[i].r, this.integrationResults[i].phi, this.integrationResults[i].theta);
+      v.setFromSphericalCoords(this.integrationResults[i].r, this.integrationResults[i].theta, this.integrationResults[i].phi);
       vertices.push(v.x, v.y, v.z);
 
       alphas.push(this.getAlpha(this.integrationResults[i].p))

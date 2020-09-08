@@ -9,7 +9,7 @@ import * as math from 'mathjs'
     <h3> Legendre Formulas </h3>
     <table class="table">
       <tr><th><ng-katex equation="l"></ng-katex></th><th>Formula</th></tr>
-      <tr *ngFor="let a of [0,1,2,3,4,5]">
+      <tr *ngFor="let a of [0,1,2,3]">
         <td>{{a}}</td>
         <td>
           <ng-katex [equation]="legendrePolynomial(a)"></ng-katex>
@@ -41,8 +41,8 @@ import * as math from 'mathjs'
       <th><ng-katex equation="m"></ng-katex></th>
       <th><ng-katex equation="l"></ng-katex></th>
       <th>Formula</th></tr>
-      <ng-container *ngFor="let m of [0, 1, 2, 3]">
-      <tr *ngFor="let l of [0,1,2,3]">
+      <ng-container *ngFor="let m of [0, 1, 2]">
+      <tr *ngFor="let l of [0,1]">
         <td>{{m}}</td>
         <td>{{l}}
         <td>
@@ -57,7 +57,7 @@ import * as math from 'mathjs'
       <tr>
       <th><ng-katex equation="q"></ng-katex></th>
       <th>Formula</th></tr>
-      <tr *ngFor="let q of [0,1,2,3]">
+      <tr *ngFor="let q of [0,1,2]">
         <td>{{q}}</td>
         <td>
           <ng-katex [equation]="laguerrePolynomial(q)"></ng-katex>
@@ -71,8 +71,8 @@ import * as math from 'mathjs'
       <th><ng-katex equation="p"></ng-katex></th>
       <th><ng-katex equation="q"></ng-katex></th>
       <th>Formula</th></tr>
-      <ng-container *ngFor="let p of [0, 1, 2, 3]">
-      <tr *ngFor="let q of [0,1,2, 3]">
+      <ng-container *ngFor="let p of [0, 1, 2]">
+      <tr *ngFor="let q of [0,1]">
         <td>{{p}}</td>
         <td>{{q}}
         <td>
@@ -89,9 +89,9 @@ import * as math from 'mathjs'
       <th><ng-katex equation="l"></ng-katex></th>
       <th><ng-katex equation="m"></ng-katex></th>
       <th>Formula</th></tr>
-      <ng-container *ngFor="let n of [0, 1, 2, 3]">
-      <ng-container *ngFor="let l of [0, 1, 2, 3]">
-      <tr *ngFor="let m of [0,1,2, 3]">
+      <ng-container *ngFor="let n of [0, 1]">
+      <ng-container *ngFor="let l of [0, 1]">
+      <tr *ngFor="let m of [0,1]">
         <td>{{n}}</td>
         <td>{{l}}</td>
         <td>{{m}}</td>
